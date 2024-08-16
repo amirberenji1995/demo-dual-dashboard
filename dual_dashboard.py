@@ -72,9 +72,11 @@ importing_path = r'assets/'
 sig_df = pd.read_csv(importing_path + 'dual_subsampled_df.csv', index_col=0)
 lrp_df = pd.read_csv(importing_path + 'LRP_dual_subsampled_df.csv', index_col=0)
 DE_scaler = joblib.load(open(importing_path + 'DE_scaler.pkl', 'rb'))
-DE_AE = torch.load(importing_path + 'DE_ae.pt', map_location=torch.device('cpu'))
 FE_scaler = joblib.load(open(importing_path + 'FE_scaler.pkl', 'rb'))
-FE_AE = torch.load(importing_path + 'FE_ae.pt', map_location=torch.device('cpu'))
+DE_AE = AE()
+FE_AE = AE()
+DE_AE.load_state_dict(torch.load(importing_path + 'DE_ae.pt', map_location=torch.device('cpu')))
+FE_AE.load_state_dict(torch.load(importing_path + 'FE_ae.pt', map_location=torch.device('cpu')))
 
 rpm_state_ratio_dict = {
     'Fan-End': {'1730':
