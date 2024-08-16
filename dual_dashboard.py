@@ -78,6 +78,9 @@ FE_AE = AE()
 DE_AE.load_state_dict(torch.load(importing_path + 'DE_ae.pt', map_location=torch.device('cpu')))
 FE_AE.load_state_dict(torch.load(importing_path + 'FE_ae.pt', map_location=torch.device('cpu')))
 
+DE_AE.eval()
+FE_AE.eval()
+
 rpm_state_ratio_dict = {
     'Fan-End': {'1730':
             {
