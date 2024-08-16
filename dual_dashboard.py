@@ -558,4 +558,4 @@ def nomralized_similarity_score_updater(annotation_rpm):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=True, port=8080)
